@@ -26,3 +26,8 @@ app.include_router(dashboard.router, prefix="/dashboard", tags=["Dashboard"])
 app.include_router(books.router, prefix="/books", tags=["Books"])
 app.include_router(users.router, prefix="/users", tags=["Users"])
 app.include_router(loans.router, prefix="/loans", tags=["Loans"])
+
+port = int(os.environ.get("PORT", 8000))
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
